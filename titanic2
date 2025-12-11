@@ -1,0 +1,4 @@
+import pandas as pd
+t = pd.read_csv('titanic.csv')
+print(t[t['Sex'] == 'male'].shape[0])
+print(t[t['Pclass'] == 1].shape[0])
