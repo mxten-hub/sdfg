@@ -1,0 +1,5 @@
+import pandas as pd
+t = pd.read_csv('titanic.csv')
+m = t['Age'].median()
+t['Age'].fillna(m, inplace=True)
+print(f"{m:.1f}")
