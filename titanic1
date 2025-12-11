@@ -1,0 +1,8 @@
+import pandas as pd
+data = pd.read_csv('titanic.csv', index_col = 0)
+
+a = data.shape[0]
+print(a)
+
+b = data['age'].isna().sum()
+print(b)
