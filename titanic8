@@ -1,0 +1,7 @@
+import pandas as pd
+t = pd.read_csv('titanic.csv')
+a = t[(t['Sex'] == 'female') & (t['Pclass'] == 1) & (t['Survived'] == 1)].shape[0]
+print(a)
+
+b = t[(t['Age'] < 18) & (t['Parch'] == 0)].shape[0]
+print(b)
