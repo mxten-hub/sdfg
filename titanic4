@@ -1,0 +1,7 @@
+import pandas as pd
+t = pd.read_csv('titanic.csv')
+a = t[t['Pclass'] == 1]['Fare'].mean()
+print(f"{a:.2f}")
+b = t[t['Pclass'] == 3]
+c = b[b['Survived'] == 1].shape[0] / b.shape[0] * 100
+print(f"{c:.2f}")
