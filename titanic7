@@ -1,0 +1,6 @@
+import pandas as pd
+t = pd.read_csv('titanic.csv')
+a = t[t['Survived'] == 1]['Age'].mean()
+b = t[t['Survived'] == 0]['Age'].mean()
+print(f"{a:.2f}")
+print(f"{b:.2f}")
