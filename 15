@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt 
+import pandas as pd
+
+df = pd.read_csv('b.csv')
+top_3 = df.nlargest(3,'Количество выданных за последний год')
+print('Топ-3 популярных книг:')
+k = 1
+for i,j in top_3.iterrows():
+    print(f'{k}. "{j["Название книги"]}" ({j["Автор"]}) - количество выданных экземпляров: {j["Количество выданных за последний год"]}')
+    k+=1
+
+plt.figure(figsize=(8,6))
+janr = df.groupby("Жанр")["Количество выданных за последний год"].mean()
+janr.plot.bar()
+plt.title("Cреднее количество выданных экземпляров для каждого жанра")
+plt.xlabel("Жанры")
+plt.ylabel("Кол-во экземпляров")
+
+plt.show()
+
