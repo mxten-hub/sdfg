@@ -27,7 +27,7 @@ def user_register():
     cnx.commit()
     cnx.close()
 
-    return {'result': True}
+    return {'result': True, 'id': cur.lastrowid}
     
 # # Fetch one result
 # row = cur.fetchone()
