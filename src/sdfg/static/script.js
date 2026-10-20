@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#67').on('submit',function(e){
+    $('#reg').on('submit',function(e){
         e.preventDefault();
         err = 0;
         if ($('#fullname').val().trim() === '' || $('#password').val().trim() != $('#confirm_password').val().trim()){
@@ -20,4 +20,18 @@ $(document).ready(function(){
             })
         }
     })
+
+    $('#log').on('submit',function(e){
+        e.preventDefault();
+                $.ajax({
+                    url: '/user_autorization',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        password: $('#password').val(),
+                        email: $('#username').val()
+                    })
+                })
+    })
 })
+
