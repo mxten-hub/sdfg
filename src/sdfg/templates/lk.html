@@ -1,1 +1,82 @@
-{{user}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .user-info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .user-info span {
+            font-weight: bold;
+            color: #333;
+        }
+        .btn-logout {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+        .btn-logout:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Личный кабинет</h2>
+        
+        {% if user %}
+            <div class="user-info">
+                <!-- user[1] - это имя, user[2] - это email (согласно твоей базе) -->
+                <p>Имя: <span>{{ user[1] }}</span></p>
+                <p>Email: <span>{{ user[2] }}</span></p>
+            </div>
+        {% else %}
+            <p style="color: red; text-align: center;">Пользователь не найден</p>
+        {% endif %}
+
+        <a href="/logout" class="btn-logout">Выйти</a>
+    </div>
+
+</body>
+</html>
